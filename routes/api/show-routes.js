@@ -4,7 +4,7 @@ const { Show} = require('../../models');
 // GET /api/shows
 router.get('/', (req, res) => {
     Show.findAll()
-      .then(dbUserData => res.json(dbShowData))
+      .then(dbShowData => res.json(dbShowData))
       .catch(err => {
         console.log(err);
         res.status(500).json(err);

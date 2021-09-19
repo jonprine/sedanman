@@ -41,11 +41,11 @@ Show.init(
         allowNull: false,
       },
       deal: {
-        type: DataTypes.INTEGER,
+        type: DataTypes.TEXT,
         allowNull: false,
       },
       deposit: {
-        type: DataTypes.INTEGER,
+        type: DataTypes.TEXT,
         allowNull: false,
       },
       showtime: {
