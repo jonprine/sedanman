@@ -14,4 +14,11 @@ router.get("/", (req, res) => {
     });
 });
 
+
+
+// new show route
+router.get("/new-show", (req, res) => {
+  res.render("new-show");
+});
+
 module.exports = router;
