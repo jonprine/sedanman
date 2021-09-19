@@ -36,11 +36,11 @@ Show.init(
         type: DataTypes.INTEGER,
         allowNull: false,
       },
-      show_time: {
+      showtime: {
         type: DataTypes.INTEGER,
         allowNull: false,
       },
-      arrival_time: {
+      arrivaltime: {
         type: DataTypes.INTEGER,
         allowNull: false,
       }
