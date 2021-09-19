@@ -44,8 +44,8 @@ router.post('/', (req, res) => {
       email: req.body.email,
       deal: req.body.deal,
       deposit: req.body.deposit,
-      showtime: req.body.contact,
-      arrivaltime: req.body.contact,
+      showtime: req.body.showtime,
+      arrivaltime: req.body.arrivaltime,
 
     })
       .then(dbShowData => res.json(dbShowData))
