@@ -52,9 +52,44 @@ router.post('/', (req, res) => {
   });
 
 // PUT /api/shows/1
-router.put('/:id', (req, res) => {});
+router.put('/:id', (req, res) => {
+
+    Show.update(req.body, {
+      where: {
+        id: req.params.id
+      }
+    })
+      .then(dbShowData => {
+        if (!dbShowData[0]) {
+          res.status(404).json({ message: 'No show found with this id' });
+          return;
+        }
+        res.json(dbShowData);
+      })
+      .catch(err => {
+        console.log(err);
+        res.status(500).json(err);
+      });
+  });
 
 // DELETE /api/shows/1
-router.delete('/:id', (req, res) => {});
+router.delete('/:id', (req, res) => {
+    Show.destroy({
+      where: {
+        id: req.params.id
+      }
+    })
+      .then(dbShowData => {
+        if (!dbShowData) {
+          res.status(404).json({ message: 'No show found with this id' });
+          return;
+        }
+        res.json(dbShowData);
+      })
+      .catch(err => {
+        console.log(err);
+        res.status(500).json(err);
+      });
+  });
 
 module.exports = router;
