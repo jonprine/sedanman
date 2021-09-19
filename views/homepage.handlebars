@@ -1,5 +1,8 @@
-        <div id="item-list">
-            {{#each shows}}
+{{#each shows}}
+<div id="item-list">
+     
+    <div class="container">
+           
  
         <div class="card card-content" id="item-${item.id}">
           <div class="row">
@@ -9,6 +12,7 @@
           <p>{{venue}}</p>
           </span>
           </div>
+          
         
         <div class="card-reveal">
           <span class="card-title grey-text text-darken-4">Date: {{date}}<i class="material-icons right">close</i></span>
@@ -23,10 +27,13 @@
           <p>Set Time: {{showtime}}</p>
           <p>Arrival Time: {{arrivaltime}}</p>
         </div>
-        </div>
-        </div>
-         {{/each}}
+    
+        
+        
+    </div>
+   
 
-        </div>
+</div>
+  {{/each}}
   
 
