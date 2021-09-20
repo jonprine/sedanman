@@ -1,9 +1,12 @@
 const router = require('express').Router();
-const { Show} = require('../../models');
+const { Show, User} = require('../../models');
 
 // GET /api/shows
 router.get('/', (req, res) => {
-    Show.findAll()
+    Show.findAll({
+      attributes: ['date', 'city', 'venue', 'address', 'contact',
+    'phone', 'email', 'deal', 'deposit', 'showtime', 'arrivaltime'],
+    })
       .then(dbShowData => res.json(dbShowData))
       .catch(err => {
         console.log(err);
@@ -14,6 +17,8 @@ router.get('/', (req, res) => {
 // GET /api/shows/1
 router.get('/:id', (req, res) => {
     Show.findOne({
+            attributes: ['date', 'city', 'venue', 'address', 'contact',
+    'phone', 'email', 'deal', 'deposit', 'showtime', 'arrivaltime'],
       where: {
         id: req.params.id
       }
@@ -58,7 +63,19 @@ router.post('/', (req, res) => {
 // PUT /api/shows/1
 router.put('/:id', (req, res) => {
 
-    Show.update(req.body, {
+    Show.update({
+      date: req.body.date,
+      city: req.body.city,
+      venue: req.body.venue,
+      address: req.body.address,
+      contact: req.body.contact,
+      phone: req.body.phone,
+      email: req.body.email,
+      deal: req.body.deal,
+      deposit: req.body.deposit,
+      showtime: req.body.showtime,
+      arrivaltime: req.body.arrivaltime,
+
       where: {
         id: req.params.id
       }

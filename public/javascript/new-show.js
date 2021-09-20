@@ -16,9 +16,8 @@ async function postNewShowHandler(event) {
     const showtime = document.querySelector('#item-showtime').value.trim();
     const arrivaltime = document.querySelector('#item-arrivaltime').value.trim();
 
-
     const response = await fetch(`/api/shows`, {
-        method: 'POST',
+        method: 'post',
         body: JSON.stringify({
             date,
             city,
