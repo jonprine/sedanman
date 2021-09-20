@@ -44,6 +44,7 @@ async function postNewShowHandler(event) {
     }
 }
 
+
 // event handler
 document.querySelector('#submit').addEventListener('click', postNewShowHandler);
   
