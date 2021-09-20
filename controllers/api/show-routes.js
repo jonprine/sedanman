@@ -4,8 +4,6 @@ const { Show, User} = require('../../models');
 // GET /api/shows
 router.get('/', (req, res) => {
     Show.findAll({
-      attributes: ['date', 'city', 'venue', 'address', 'contact',
-    'phone', 'email', 'deal', 'deposit', 'showtime', 'arrivaltime'],
     })
       .then(dbShowData => res.json(dbShowData))
       .catch(err => {
@@ -17,8 +15,7 @@ router.get('/', (req, res) => {
 // GET /api/shows/1
 router.get('/:id', (req, res) => {
     Show.findOne({
-            attributes: ['date', 'city', 'venue', 'address', 'contact',
-    'phone', 'email', 'deal', 'deposit', 'showtime', 'arrivaltime'],
+
       where: {
         id: req.params.id
       }
