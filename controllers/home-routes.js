@@ -5,19 +5,6 @@ const { Show, User } = require("../models");
 router.get("/", (req, res) => {
   console.log(req.session);
   Show.findAll({
-    attributes: [
-      "date",
-      "city",
-      "venue",
-      "address",
-      "contact",
-      "phone",
-      "email",
-      "deal",
-      "deposit",
-      "showtime",
-      "arrivaltime",
-    ],
   })
     .then((dbShowData) => {
       const shows = dbShowData.map((show) => show.get({ plain: true }));
@@ -36,20 +23,23 @@ router.get("/login", (req, res) => {
 
 // single show
 router.get("/show/:id", (req, res) => {
-  Post.findOne({
+  Show.findOne({
     where: {
       id: req.params.id,
     },
   })
-    .then((dbPostData) => {
-      if (!dbPostData) {
+    .then((dbShowData) => {
+      if (!dbShowData) {
         res.status(404).json({ message: "No show found with this id" });
         return;
       }
       // serialize the data
       const show = dbShowData.get({ plain: true });
 
-      res.render("single-show", { show });
+      res.render("single-show", { 
+        show,
+      // loggedIn: req.session.loggedIn
+     });
     })
     .catch((err) => {
       console.log(err);
