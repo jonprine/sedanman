@@ -38,7 +38,7 @@ router.get("/show/:id", (req, res) => {
 
       res.render("single-show", { 
         show,
-      // loggedIn: req.session.loggedIn
+      loggedIn: req.session.loggedIn
      });
     })
     .catch((err) => {
