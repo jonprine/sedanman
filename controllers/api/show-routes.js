@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const { Show, User} = require('../../models');
+const withAuth = require('../../utils/auth');
 
 // GET /api/shows
 router.get('/', (req, res) => {
@@ -34,7 +35,7 @@ router.get('/:id', (req, res) => {
   });
 
 // POST /api/shows
-router.post('/', (req, res) => {
+router.post('/', withAuth, (req, res) => {
     
     Show.create({
       date: req.body.date,
@@ -58,7 +59,7 @@ router.post('/', (req, res) => {
   });
 
 // PUT /api/shows/1
-router.put('/:id', (req, res) => {
+router.put('/:id', withAuth, (req, res) => {
 
     Show.update({
       date: req.body.date,
@@ -91,7 +92,7 @@ router.put('/:id', (req, res) => {
   });
 
 // DELETE /api/shows/1
-router.delete('/:id', (req, res) => {
+router.delete('/:id', withAuth, (req, res) => {
     Show.destroy({
       where: {
         id: req.params.id
