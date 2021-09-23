@@ -21,6 +21,14 @@ router.get("/login", (req, res) => {
   res.render("login");
 });
 
+// signup
+// login
+router.get("/signup", (req, res) => {
+  res.render("signup");
+});
+
+
+
 // single show
 router.get("/show/:id", (req, res) => {
   Show.findOne({
