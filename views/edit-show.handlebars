@@ -1,0 +1,39 @@
+<div class="container">
+  <a href="/dashboard"> &larr; Back to dashboard</a>
+  <h5>
+    Edit Show
+  </h5>
+  <form class="edit-post-form">
+    <div>
+      <label for="date">Date</label><br />
+    <input name="date" type="text" value={{show.date}}  /><br />
+    <label for="city">City</label><br />
+    <input name="city" type="text" value={{show.city}} />
+    <label for="venue">Venue</label><br />
+    <input name="venue" type="text" value={{show.venue}} /><br />
+    <label for="address">Address</label><br />
+    <input name="address" type="text" value={{show.address}}  /><br />
+     <label for="contact">Contact</label><br />
+    <input name="contact" type="text" value={{show.contact}}  />
+    <label for="phone">Phone</label><br />
+    <input name="phone" type="text" value={{show.phone}}  />
+    <label for="email">Email</label><br />
+    <input name="email"  type="text" value={{show.email}} />
+    <label for="deal">Deal</label><br />
+    <input name="deal" type="text" value={{show.deal}}  />
+    <label for="deposit">Deposit</label><br />
+    <input name="deposit" type="text" value={{show.deposit}}  />
+    <label for="showtime">Showtime</label><br />
+    <input name="showtime" type="text" value={{show.showtime}}  />
+    <label for="arrivaltime">Arrival Time</label><br />
+    <input name="arrivaltime" type="text" value={{show.arrivaltime}}  />
+          <div>
+        <button type="submit">Save post</button>
+        <button type="button" class="delete-post-btn">Delete post</button>
+      </div>
+       </div>
+  </form>
+</div>
+
+<script src="/javascript/edit-show.js"></script>
+<script src="/javascript/delete-show.js"></script>

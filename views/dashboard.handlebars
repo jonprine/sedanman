@@ -4,4 +4,15 @@
   <a href="/dashboard/new-show" class="waves-effect waves-light blue btn">new show</a>
   </div>
 
-    <script src="/javascript/new-show.js"></script>
+  {{#if shows.length}}
+<div>
+  <h5>Current Shows</h5>
+  <ol>
+    {{#each shows as |show|}}
+    <li>
+      <a href="/dashboard/edit/{{show.id}}" class="edit-link">{{show.venue}}</a>
+    </li>
+    {{/each}}
+  </ol>
+</div>
+{{/if}}
