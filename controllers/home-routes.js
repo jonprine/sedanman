@@ -1,10 +1,11 @@
 const router = require("express").Router();
 const sequelize = require("../config/connection");
 const { Show, User } = require("../models");
+const withAuth = require("../utils/auth");
 
-router.get("/", (req, res) => {
-  console.log(req.session);
+router.get("/", withAuth, (req, res) => {
   Show.findAll({
+
   })
     .then((dbShowData) => {
       const shows = dbShowData.map((show) => show.get({ plain: true }));
