@@ -1,6 +1,9 @@
 async function editFormHandler(event) {
     event.preventDefault();
 
+    const show_id = window.location.toString().split('/')[
+        window.location.toString().split('/').length - 1
+    ];
 
     const date = document.querySelector('input[name="date"]').value;
     const city = document.querySelector('input[name="city"]').value;
@@ -13,10 +16,6 @@ async function editFormHandler(event) {
     const deposit = document.querySelector('input[name="deposit"]').value;
     const showtime = document.querySelector('input[name="showtime"]').value;
     const arrivaltime = document.querySelector('input[name="arrivaltime"]').value;
-
-    const show_id = window.location.toString().split('/')[
-        window.location.toString().split('/').length - 1
-    ];
 
     const response = await fetch(`/api/shows/${show_id}`, {
         method: 'PUT',
